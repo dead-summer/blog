@@ -14,7 +14,6 @@ export default defineNavbarConfig([
   {
     text: '笔记',
     items: [
-      // { text: '示例', link: '/notes/demo/README.md' },
       { text: '黑马程序员SpringBoot', link: '/notes/HMSpringBoot/README.md' },
       { text: '黑马程序员Redis', link: '/notes/HMRedis/README.md' },
       { text: '湖科大计算机网络', link: '/notes/HNUSTComputerNetwork/README.md' },
