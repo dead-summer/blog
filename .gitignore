@@ -7,3 +7,11 @@ docs/.vuepress/dist
 .DS_Store
 *.log
 scripts/.env
+
+# 忽略的笔记
+docs/notes/Leetcode代码微光集
+docs/notes/廖雪峰Java
+docs/notes/湖科大计算机网络
+docs/notes/黑马程序员Java
+docs/notes/黑马程序员Redis
+docs/notes/黑马程序员SpringBoot
