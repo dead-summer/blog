@@ -9,6 +9,12 @@ on:
   # Manually trigger deployment
   workflow_dispatch:
 
+# 添加权限设置
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   docs:
     runs-on: ubuntu-latest
