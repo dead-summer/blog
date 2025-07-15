@@ -16,7 +16,7 @@ import { calloutContainer } from './theme/callout'
 
 
 export default defineUserConfig({
-  base: '/',
+  base: '/blog/',
   lang: 'zh-CN',
   title: 'Summer Reverie',
   description: '以文字为舟，停泊在夏日岛屿。这里收藏生活碎片、灵感絮语与成长故事，愿每一次翻阅，都能感受清风拂面的治愈。',
