@@ -20,6 +20,16 @@ jobs:
           # "Last updated time" and other git log-related information require fetching all commit records.
           fetch-depth: 0
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 运行 Python 脚本处理文件
+      - name: Run markdown processor
+        run: python scripts/markdown_processor.py
+          
+        
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 

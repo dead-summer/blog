@@ -141,6 +141,68 @@ class PermalinkProcessor(MarkdownProcessor):
         print(f"已更新 {file_path} 的 permalink -> {new_permalink}")
         self.processed_count += 1
         return True
+    
+
+class ObsidianImageToHtmlProcessor(MarkdownProcessor):
+    """Obsidian 图片格式转 HTML 处理器"""
+    
+    def __init__(self, default_width=500, img_base_path=""):
+        super().__init__("ObsidianImageToHtmlProcessor")
+        self.default_width = default_width
+        self.img_base_path = img_base_path.rstrip('/')
+        self.total_replacements = 0
+        # 正则表达式：匹配 ![[path|width]] 或 ![[path]]
+        self.pattern = re.compile(r'!\[\[([^|\]]+)(\|(\d+))?\]\]')
+    
+    def _convert_to_html(self, match):
+        """将匹配的Obsidian图片格式转换为HTML"""
+        image_path = match.group(1)
+        width = match.group(3)        # 宽度数字
+        
+        # 确定宽度
+        img_width = width if width else str(self.default_width)
+        
+        # 提取文件名作为alt属性（去掉路径和扩展名）
+        alt_text = os.path.splitext(os.path.basename(image_path))[0]
+        
+        # 生成HTML标签
+        html_img = f'<img src="./{image_path}" alt="{alt_text}" width="{img_width}" style="display: block; margin: auto;">'
+        
+        return html_img
+    
+    def process_file(self, file_path):
+        """处理单个文件，将Obsidian图片格式转换为HTML"""
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # 统计替换次数
+            original_content = content
+            content = self.pattern.sub(self._convert_to_html, content)
+            
+            # 计算实际替换次数
+            file_replacements = len(self.pattern.findall(original_content))
+            
+            if file_replacements > 0:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+                
+                print(f'{file_path}: 转换 {file_replacements} 个Obsidian图片为HTML格式')
+                self.processed_count += 1
+                self.total_replacements += file_replacements
+                return True
+            
+            return False
+            
+        except Exception as e:
+            print(f"处理文件 {file_path} 时出错：{e}")
+            return False
+    
+    def get_stats(self):
+        """获取处理统计信息"""
+        stats = super().get_stats()
+        stats["total_replacements"] = self.total_replacements
+        return stats
 
 
 class MarkdownBatchProcessor:
@@ -194,6 +256,11 @@ class MarkdownBatchProcessor:
 # 便捷的工厂函数和预设配置
 class ProcessorFactory:
     """处理器工厂类"""
+
+    @staticmethod
+    def create_obsidian_html_processor(default_width=500, img_base_path=""):
+        """创建 Obsidian 图片转 HTML 处理器"""
+        return ObsidianImageToHtmlProcessor(default_width, img_base_path)
     
     @staticmethod
     def create_regex_processor(regex_list):
@@ -211,22 +278,14 @@ def main():
     if len(sys.argv) >= 2:
         directory = sys.argv[1]
     else:
-        directory = "./docs/notes/湖科大计算机网络"
+        directory = "./docs"
     
     # 创建批处理器
     batch_processor = MarkdownBatchProcessor(directory)
 
-    regex_list = [
-            # ------------ 查询 ------------ 匹配 ------------
-            [r"!\[\[([^|\]]+)(?:\|[^\]]+)?\]\]", r"![](\1)"],  # Obsidian 图片链接转 Markdown
-            [r"(?<=!\[[^\]]*\]\([^)]*)\s(?=[^)]*\))", r"%20"]  # 将图片链接中的空格替换为 URL 字符
-        ]
-    
     # 添加处理器
     batch_processor.add_processor(
-        ProcessorFactory.create_regex_processor(regex_list)
-    ).add_processor(
-        ProcessorFactory.create_permalink_processor("/notes/HNUSTComputerNetwork/")
+        ProcessorFactory.create_obsidian_html_processor(img_base_path=directory)
     )
     
     # 执行处理
