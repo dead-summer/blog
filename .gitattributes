@@ -1,10 +1,17 @@
 * text eol=lf
 *.txt text eol=crlf
 
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.ico binary
-*.tff binary
-*.woff binary
+# 将以下文件类型标记为二进制文件，禁止 Git 对它们进行任何内容转换
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.svg   binary
+*.woff  binary
 *.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.pdf   binary
+*.zip   binary
+*.gz    binary

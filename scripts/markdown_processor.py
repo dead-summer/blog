@@ -146,7 +146,7 @@ class PermalinkProcessor(MarkdownProcessor):
 class ObsidianImageToHtmlProcessor(MarkdownProcessor):
     """Obsidian 图片格式转 HTML 处理器"""
     
-    def __init__(self, default_width=500, img_base_path=""):
+    def __init__(self, default_width=750, img_base_path=""):
         super().__init__("ObsidianImageToHtmlProcessor")
         self.default_width = default_width
         self.img_base_path = img_base_path.rstrip('/')
@@ -159,8 +159,8 @@ class ObsidianImageToHtmlProcessor(MarkdownProcessor):
         image_path = match.group(1)
         width = match.group(3)        # 宽度数字
         
-        # 确定宽度
-        img_width = width if width else str(self.default_width)
+        # 确定宽度(在 Obsidian 中 500 宽度刚好，但是部署到网页后略小，因此获取到的 Obsidian 图片宽度 * 1.5)
+        img_width = float(width) * 1.5 if width else str(self.default_width)
         
         # 提取文件名作为alt属性（去掉路径和扩展名）
         alt_text = os.path.splitext(os.path.basename(image_path))[0]
@@ -211,7 +211,7 @@ class MarkdownBatchProcessor:
     def __init__(self, root_dir):
         self.root_dir = root_dir
         self.processors = []
-        self.file_filter = lambda filename: filename.lower().endswith('.md') and filename != "README.md"
+        self.file_filter = lambda filename: filename.lower().endswith('.md')
     
     def add_processor(self, processor):
         """添加处理器"""
@@ -258,7 +258,7 @@ class ProcessorFactory:
     """处理器工厂类"""
 
     @staticmethod
-    def create_obsidian_html_processor(default_width=500, img_base_path=""):
+    def create_obsidian_html_processor(default_width=750, img_base_path=""):
         """创建 Obsidian 图片转 HTML 处理器"""
         return ObsidianImageToHtmlProcessor(default_width, img_base_path)
     
