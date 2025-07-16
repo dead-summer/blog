@@ -1,0 +1,4 @@
+regex
+PyYAML
+openai
+python-dotenv
