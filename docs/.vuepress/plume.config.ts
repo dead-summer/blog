@@ -18,12 +18,12 @@ import notes from './notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
+  logo: '/logo.svg',
 
   appearance: true,  // 配置 深色模式
 
   social: [
-    { icon: 'github', link: '/' },
+    { icon: 'github', link: 'https://github.com/dead-summer' },
   ],
   // navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
   // aside: true, // 页内侧边栏， 默认显示在右侧
@@ -49,9 +49,9 @@ export default defineThemeConfig({
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
   profile: {
-    avatar: 'https://theme-plume.vuejs.press/plume.png',
+    avatar: '/avatar.jpg',
     name: 'Summer Reverie',
-    description: '以文字为舟，停泊在夏日岛屿。这里收藏生活碎片、灵感絮语与成长故事，愿每一次翻阅，都能感受清风拂面的治愈。',
+    description: '以文字为舟，停泊在夏日岛屿。',
     // circle: true,
     // location: '',
     // organization: '',
