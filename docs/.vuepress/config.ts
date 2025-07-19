@@ -21,10 +21,10 @@ export default defineUserConfig({
   title: 'Summer Reverie',
   description: '以文字为舟，停泊在夏日岛屿。',
 
-  // head: [
-  //   // 配置站点图标
-  //   ['link', { rel: 'icon', type: 'image/png', href: '/levi-32x32.png' }],
-  // ],
+  head: [
+    // 配置站点图标
+    ['link', { rel: 'icon', href: '/blog/favicon.ico' }],
+  ],
 
   bundler: viteBundler(),
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
