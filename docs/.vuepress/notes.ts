@@ -58,6 +58,12 @@ const LeetCodeGlimmerCollection = defineNoteConfig({
   sidebar: 'auto',
 })
 
+const Interview = defineNoteConfig({
+  dir: '八股文自救指南',
+  link: '/notes/interview',
+  sidebar: 'auto',
+})
+
 
 /**
  * 导出所有的 note
@@ -67,5 +73,5 @@ const LeetCodeGlimmerCollection = defineNoteConfig({
 export default defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [HMSpringBoot, HMRedis, HNUSTComputerNetwork, LXFJava, LeetCodeGlimmerCollection],
+  notes: [HMSpringBoot, HMRedis, HNUSTComputerNetwork, LXFJava, LeetCodeGlimmerCollection, Interview],
 })

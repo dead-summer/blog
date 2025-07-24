@@ -27,7 +27,7 @@ config:
       -
         title: 湖科大计算机网络
         icon: noto:globe-with-meridians
-        details: Git 命令行、日志、统计、分支
+        details: 深入浅出计算机网络
         link: ./湖科大计算机网络/README.md
       -
         title: 廖雪峰 Java
@@ -38,7 +38,12 @@ config:
         title: LeetCode 代码微光集
         icon: devicon:leetcode
         details: LeetCode 刷题记录
-        link: ./LeetCode代码微光集/README.md
+        link: ./Leetcode代码微光集/README.md
+      -
+        title: 八股文自救指南
+        icon: lucide:scroll
+        details: HR，我又来背套路了
+        link: ./八股文自救指南/README.md
   -
     type: custom
 permalink: /notes/
