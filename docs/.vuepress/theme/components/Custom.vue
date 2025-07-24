@@ -143,11 +143,11 @@ canvas {
 
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted} from 'vue'
-import AboutMeName from "./AboutMeName.vue";
-import AboutMeText from "./AboutMeText.vue";
-import AboutMeSkill from "./AboutMeSkill.vue";
-import AboutMeCharacter from "./AboutMeCharacter.vue";
-import AboutMeLife from "./AboutMeLife.vue";
+import AboutMeName from "../components/AboutMeName.vue";
+import AboutMeText from "../components/AboutMeText.vue";
+import AboutMeSkill from "../components/AboutMeSkill.vue";
+import AboutMeCharacter from "../components/AboutMeCharacter.vue";
+import AboutMeLife from "../components/AboutMeLife.vue";
 
 interface Comet {
   direction: 'horizontal' | 'vertical'
