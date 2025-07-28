@@ -15,25 +15,11 @@ config:
     type: features
     features:
       -
-        title: 黑马程序员 Spring Boot
-        icon: devicon:spring
-        details: Spring Boot 2 零基础到项目实战
-        link: ./黑马程序员SpringBoot/README.md
-      -
-        title: 黑马程序员 Redis
-        icon: logos:redis
-        details: Redis 入门到实战
-        link: ./黑马程序员Redis/README.md
-      -
-        title: 湖科大计算机网络
-        icon: noto:globe-with-meridians
-        details: Git 命令行、日志、统计、分支
-        link: ./湖科大计算机网络/README.md
-      -
-        title: 廖雪峰 Java
-        icon: logos:java
-        details: 专门针对小白的零基础Java教程
-        link: ./廖雪峰Java/README.md
+        title: Math Notes
+        icon: noto:notebook
+        details: 研究生期间的数学学习笔记。
+        link: https://dead-summer.github.io/math-notes/
+      
       -
         title: LeetCode 代码微光集
         icon: devicon:leetcode
