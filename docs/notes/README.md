@@ -15,6 +15,11 @@ config:
     type: features
     features:
       -
+        title: Math Notes
+        icon: noto:notebook
+        details: 研究生期间的数学学习笔记。
+        link: https://dead-summer.github.io/math-notes/
+      -
         title: 黑马程序员 Spring Boot
         icon: devicon:spring
         details: Spring Boot 2 零基础到项目实战
@@ -41,7 +46,7 @@ config:
         link: ./Leetcode代码微光集/README.md
       -
         title: 八股文自救指南
-        icon: lucide:scroll
+        icon: noto:newspaper
         details: HR，我又来背套路了
         link: ./八股文自救指南/README.md
   -
