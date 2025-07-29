@@ -28,9 +28,21 @@ const HMJava = defineNoteConfig({
   sidebar: 'auto',
 })
 
+const LXFJava = defineNoteConfig({
+  dir: '廖雪峰Java',
+  link: '/notes/LXFJava',
+  sidebar: 'auto',
+})
+
 const HMSpringBoot = defineNoteConfig({
   dir: '黑马程序员SpringBoot',
   link: '/notes/HMSpringBoot',
+  sidebar: 'auto',
+})
+
+const HMMySQL = defineNoteConfig({
+  dir: '黑马程序员MySQL',
+  link: '/notes/HMMySQL',
   sidebar: 'auto',
 })
 
@@ -46,11 +58,7 @@ const HNUSTComputerNetwork = defineNoteConfig({
   sidebar: 'auto',
 })
 
-const LXFJava = defineNoteConfig({
-  dir: '廖雪峰Java',
-  link: '/notes/LXFJava',
-  sidebar: 'auto',
-})
+
 
 const LeetCodeGlimmerCollection = defineNoteConfig({
   dir: 'Leetcode代码微光集',
@@ -73,5 +81,5 @@ const Interview = defineNoteConfig({
 export default defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [HMSpringBoot, HMRedis, HNUSTComputerNetwork, LXFJava, LeetCodeGlimmerCollection, Interview],
+  notes: [LXFJava, HMSpringBoot, HMMySQL, HMRedis, HNUSTComputerNetwork, LeetCodeGlimmerCollection, Interview],
 })

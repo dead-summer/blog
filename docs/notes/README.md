@@ -20,10 +20,20 @@ config:
         details: 研究生期间的数学学习笔记。
         link: https://dead-summer.github.io/math-notes/
       -
+        title: 廖雪峰 Java
+        icon: logos:java
+        details: 专门针对小白的零基础Java教程
+        link: ./廖雪峰Java/README.md
+      -
         title: 黑马程序员 Spring Boot
         icon: devicon:spring
         details: Spring Boot 2 零基础到项目实战
         link: ./黑马程序员SpringBoot/README.md
+      -
+        title: 黑马程序员 MySQL
+        icon: devicon:mysql
+        details: MySQL 数据库从入门到精通
+        link: ./黑马程序员MySQL/README.md
       -
         title: 黑马程序员 Redis
         icon: logos:redis
@@ -34,11 +44,6 @@ config:
         icon: noto:globe-with-meridians
         details: 深入浅出计算机网络
         link: ./湖科大计算机网络/README.md
-      -
-        title: 廖雪峰 Java
-        icon: logos:java
-        details: 专门针对小白的零基础Java教程
-        link: ./廖雪峰Java/README.md
       -
         title: LeetCode 代码微光集
         icon: devicon:leetcode
