@@ -133,11 +133,12 @@ export default defineUserConfig({
       // jsfiddle: true,     // 启用嵌入 jsfiddle 语法 @[jsfiddle](user/id)
       // npmTo: true,        // 启用 npm-to 容器  ::: npm-to
       // demo: true,         // 启用 demo 容器  ::: demo
-      // repl: {             // 启用 代码演示容器
-      //   go: true,         // ::: go-repl
-      //   rust: true,       // ::: rust-repl
-      //   kotlin: true,     // ::: kotlin-repl
-      // },
+      repl: {             // 启用 代码演示容器
+        // go: true,         // ::: go-repl
+        // rust: true,       // ::: rust-repl
+        // kotlin: true,     // ::: kotlin-repl
+        python: true,
+      },
       math: {             // 启用数学公式
         type: 'katex',
       },
