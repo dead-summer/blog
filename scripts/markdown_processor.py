@@ -204,6 +204,116 @@ class ObsidianImageToHtmlProcessor(MarkdownProcessor):
         stats["total_replacements"] = self.total_replacements
         return stats
 
+class DetailsWrapperProcessor(MarkdownProcessor):
+    """将指定内容包装到 details 块中的处理器"""
+    
+    def __init__(self, start_marker="auto_yaml_end", end_marker=None, summary_text="北海啊，要多想！"):
+        super().__init__("DetailsWrapperProcessor")
+        self.start_marker = start_marker  # 开始位置标记，"auto_yaml_end"表示自动从YAML结束后开始，None表示文档开头
+        self.end_marker = end_marker      # 结束位置标记，None表示文档结束  
+        self.summary_text = summary_text  # 提示词
+        self.total_wraps = 0
+    
+    def process_file(self, file_path):
+        """处理单个文件，将指定区域包装到 details 块中"""
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # 如果文件为空，跳过
+            if not content.strip():
+                return False
+            
+            # 查找开始和结束位置
+            start_pos = 0
+            end_pos = len(content)
+            
+            if self.start_marker == "auto_yaml_end":
+                # 自动查找YAML front matter结束位置（第二个---之后）
+                first_dash_pos = content.find("---")
+                if first_dash_pos == 0:  # 文档确实以---开头
+                    # 查找第二个---
+                    second_dash_pos = content.find("---", first_dash_pos + 3)
+                    if second_dash_pos != -1:
+                        # 找到第二个---，从其后的内容开始
+                        # 跳过---后的换行符
+                        start_pos = second_dash_pos + 3
+                        while start_pos < len(content) and content[start_pos] in ['\n', '\r']:
+                            start_pos += 1
+                    else:
+                        print(f"在 {file_path} 中找到YAML开始标记但未找到结束标记，从文档开头开始")
+                        start_pos = 0
+                else:
+                    # 没有YAML front matter，从文档开头开始
+                    start_pos = 0
+            elif self.start_marker is None:
+                start_pos = 0
+            elif self.start_marker:
+                start_index = content.find(self.start_marker)
+                if start_index != -1:
+                    # # 以start_marker为开始位置，从start_index开始
+                    # start_pos = start_index
+                    # 以 start_marker 下一行为开始位置
+                    start_pos = content.find("\n", start_index) + 1
+                else:
+                    print(f"在 {file_path} 中未找到开始标记: {self.start_marker}")
+                    return False
+            
+            if self.end_marker:
+                end_index = content.find(self.end_marker, start_pos)
+                if end_index != -1:
+                    end_pos = end_index + len(self.end_marker)
+                else:
+                    print(f"在 {file_path} 中未找到结束标记: {self.end_marker}")
+                    return False
+            
+            # 提取要包装的内容
+            before_content = content[:start_pos]
+            wrap_content = content[start_pos:end_pos]
+            after_content = content[end_pos:]
+            
+            # 检查是否已经被 details 包装过（简单检查）
+            if '<details>' in wrap_content or '</details>' in wrap_content:
+                print(f"{file_path}: 内容可能已经包含 details 块，跳过")
+                return False
+            
+            # 去除包装内容两端的空白，但保留内部格式
+            wrap_content = wrap_content.strip()
+            
+            # 如果包装内容为空，跳过
+            if not wrap_content:
+                print(f"{file_path}: 没有找到需要包装的内容")
+                return False
+            
+            # 创建 details 块
+            details_content = f"""<details>
+<summary>{self.summary_text}</summary>
+
+{wrap_content}
+
+</details>"""
+            
+            # 重新组合内容
+            new_content = before_content + details_content + after_content
+            
+            # 写回文件
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            
+            print(f"{file_path}: 已将内容包装到 details 块中")
+            self.processed_count += 1
+            self.total_wraps += 1
+            return True
+            
+        except Exception as e:
+            print(f"处理文件 {file_path} 时出错：{e}")
+            return False
+    
+    def get_stats(self):
+        """获取处理统计信息"""
+        stats = super().get_stats()
+        stats["total_wraps"] = self.total_wraps
+        return stats
 
 class MarkdownBatchProcessor:
     """Markdown 批处理器主类"""
@@ -271,26 +381,45 @@ class ProcessorFactory:
     def create_permalink_processor(prefix):
         """创建 permalink 处理器"""
         return PermalinkProcessor(prefix)
+
+    @staticmethod
+    def create_details_wrapper_processor(start_marker="auto_yaml_end", end_marker=None, summary_text="北海啊，要多想！"):
+        """创建 details 包装处理器
+        
+        Args:
+            start_marker: 开始位置标记
+                - "auto_yaml_end": (默认) 自动从YAML front matter结束后开始
+                - None: 从文档开头开始
+                - 字符串: 自定义开始标记文本
+            end_marker: 结束位置标记文本，None表示到文档结尾结束
+            summary_text: details 块的提示词
+        """
+        return DetailsWrapperProcessor(start_marker, end_marker, summary_text)
     
 
 def main():
     """主函数示例"""
-    if len(sys.argv) >= 2:
-        directory = sys.argv[1]
-    else:
-        directory = "./docs"
     
     # 创建批处理器
-    batch_processor = MarkdownBatchProcessor(directory)
+    batch_processor = MarkdownBatchProcessor("./docs")
 
     # 添加处理器
     batch_processor.add_processor(
-        ProcessorFactory.create_obsidian_html_processor(img_base_path=directory)
+        ProcessorFactory.create_obsidian_html_processor(img_base_path="./docs")
     )
     
     # 执行处理
     batch_processor.process_all()
 
+    # 创建第二个批处理器
+    batch_processor2 = MarkdownBatchProcessor("./docs/notes/Leetcode代码微光集")
+    batch_processor2.add_processor(
+        ProcessorFactory.create_details_wrapper_processor(
+            start_marker="## **思路**",  # 从第二个 --- 开始（通常是 YAML front matter 结束后）
+            summary_text="北海啊，要多想！"
+        )
+    )
+    batch_processor2.process_all()
 
 if __name__ == "__main__":
     main()
