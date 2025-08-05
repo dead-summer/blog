@@ -24,7 +24,7 @@ config:
         title: LeetCode 代码微光集
         icon: devicon:leetcode
         details: LeetCode 刷题记录
-        link: ./LeetCode代码微光集/README.md
+        link: ./Leetcode代码微光集/README.md
   -
     type: custom
 permalink: /notes/

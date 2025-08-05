@@ -21,37 +21,6 @@
  */
 import { defineNoteConfig, defineNotesConfig } from 'vuepress-theme-plume'
 
-
-const HMJava = defineNoteConfig({
-  dir: '黑马程序员Java',
-  link: '/notes/HMJava',
-  sidebar: 'auto',
-})
-
-const HMSpringBoot = defineNoteConfig({
-  dir: '黑马程序员SpringBoot',
-  link: '/notes/HMSpringBoot',
-  sidebar: 'auto',
-})
-
-const HMRedis = defineNoteConfig({
-  dir: '黑马程序员Redis',
-  link: '/notes/HMRedis',
-  sidebar: 'auto',
-})
-
-const HNUSTComputerNetwork = defineNoteConfig({
-  dir: '湖科大计算机网络',
-  link: '/notes/HNUSTComputerNetwork',
-  sidebar: 'auto',
-})
-
-const LXFJava = defineNoteConfig({
-  dir: '廖雪峰Java',
-  link: '/notes/LXFJava',
-  sidebar: 'auto',
-})
-
 const LeetCodeGlimmerCollection = defineNoteConfig({
   dir: 'Leetcode代码微光集',
   link: '/notes/leetcode',
@@ -67,5 +36,5 @@ const LeetCodeGlimmerCollection = defineNoteConfig({
 export default defineNotesConfig({
   dir: 'notes',
   link: '/',
-  notes: [HMSpringBoot, HMRedis, HNUSTComputerNetwork, LXFJava, LeetCodeGlimmerCollection],
+  notes: [LeetCodeGlimmerCollection],
 })
