@@ -368,7 +368,7 @@ class ProcessorFactory:
     """处理器工厂类"""
 
     @staticmethod
-    def create_obsidian_html_processor(default_width=750, img_base_path=""):
+    def create_obsidian_html_processor(default_width, img_base_path):
         """创建 Obsidian 图片转 HTML 处理器"""
         return ObsidianImageToHtmlProcessor(default_width, img_base_path)
     
@@ -383,7 +383,7 @@ class ProcessorFactory:
         return PermalinkProcessor(prefix)
 
     @staticmethod
-    def create_details_wrapper_processor(start_marker="auto_yaml_end", end_marker=None, summary_text="北海啊，要多想！"):
+    def create_details_wrapper_processor(start_marker, end_marker, summary_text):
         """创建 details 包装处理器
         
         Args:
@@ -405,7 +405,7 @@ def main():
 
     # 添加处理器
     batch_processor.add_processor(
-        ProcessorFactory.create_obsidian_html_processor(img_base_path="./docs")
+        ProcessorFactory.create_obsidian_html_processor(default_width=750, img_base_path="./docs")
     )
     
     # 执行处理
@@ -415,7 +415,8 @@ def main():
     batch_processor2 = MarkdownBatchProcessor("./docs/notes/Leetcode代码微光集")
     batch_processor2.add_processor(
         ProcessorFactory.create_details_wrapper_processor(
-            start_marker="## **思路**",  # 从第二个 --- 开始（通常是 YAML front matter 结束后）
+            start_marker="## **思路**",
+            end_marker=None,
             summary_text="北海啊，要多想！"
         )
     )
