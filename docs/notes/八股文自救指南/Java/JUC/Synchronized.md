@@ -1,3 +1,8 @@
+---
+title: Synchronized
+createTime: 2025/08/26 15:07:24
+permalink: /notes/interview/522fyxos/
+---
 每个 Java 对象在内存中都有一个对象头（Object Header），其中包含 Mark Word 区域。Mark Word 存储对象的运行时数据，包括哈希码（Hash Code）、锁状态标志位（Lock Flag）、GC 分代年龄（GC Age）等。锁状态标志位标识了 `Synchronized` 的当前状态，为锁升级提供基础支持。
 
 ## 实现原理

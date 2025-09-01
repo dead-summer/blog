@@ -1,3 +1,8 @@
+---
+title: CAS
+createTime: 2025/08/26 16:55:30
+permalink: /notes/interview/0403wn25/
+---
 CAS（Compare And Swap）是一种无锁并发编程的核心机制，用于实现原子操作。它通过硬件指令（如 CPU 的 `cmpxchg` 指令）确保操作的原子性，避免线程阻塞。
 
 ## 原理

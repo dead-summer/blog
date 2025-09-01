@@ -1,3 +1,8 @@
+---
+title: JIT编译器
+createTime: 2025/08/29 15:42:18
+permalink: /notes/interview/1jjijo1b/
+---
 ## 定义
 
 JIT（Just-In-Time）编译器是 Java 虚拟机（JVM）的重要组成部分，它是一种动态编译技术。JIT 编译器在 Java 程序运行时，将 Java 字节码（Bytecode）转换为本地机器代码，从而显著提高程序的执行效率。

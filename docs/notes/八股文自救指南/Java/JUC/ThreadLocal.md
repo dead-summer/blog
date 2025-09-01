@@ -1,3 +1,8 @@
+---
+title: ThreadLocal
+createTime: 2025/08/25 20:51:43
+permalink: /notes/interview/8s6pd4xf/
+---
 `ThreadLocal` 提供线程级别的数据存储机制。每个线程拥有独立的 `ThreadLocal` 变量副本，可安全操作数据而无需同步，避免线程间干扰。
 
 ## 使用场景

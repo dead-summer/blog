@@ -1,3 +1,8 @@
+---
+title: ReentrantLock
+createTime: 2025/08/26 15:27:06
+permalink: /notes/interview/yow1n5vx/
+---
 ReentrantLock 是 Java 并发包 (`java.util.concurrent.locks`) 中 `Lock` 接口的核心实现类，提供了比 `synchronized` 关键字更灵活的锁机制。其底层基于 AQS (`AbstractQueuedSynchronizer`) 框架实现，支持可重入性、公平锁、非公平锁等高级特性。
 
 ```mermaid

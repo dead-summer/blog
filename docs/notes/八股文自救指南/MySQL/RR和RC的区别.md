@@ -1,3 +1,8 @@
+---
+title: RR和RC的区别
+createTime: 2025/08/30 17:19:32
+permalink: /notes/interview/ky0gapeq/
+---
 在 MySQL 中，RR (REPEATABLE READ) 和 RC (READ COMMITTED) 是两种不同的事务隔离级别，主要区别体现在快照读行为、锁机制和主从同步要求上。以下是详细对比：
 
 ## 快照读 (Snapshot Read)

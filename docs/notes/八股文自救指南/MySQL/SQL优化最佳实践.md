@@ -1,3 +1,8 @@
+---
+title: SQL优化最佳实践
+createTime: 2025/08/30 15:47:30
+permalink: /notes/interview/bsdyp3to/
+---
 ## 慢 SQL 的定位
 
  MySQL 提供了慢查询日志（Slow Query Log）功能，可以记录所有执行时间超过 `long_query_time` 设置值的 SQL 语句。通过分析慢查询日志，可以快速定位到需要优化的 SQL。

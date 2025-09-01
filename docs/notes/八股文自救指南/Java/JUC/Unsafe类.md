@@ -1,3 +1,8 @@
+---
+title: Unsafe类
+createTime: 2025/08/27 15:59:11
+permalink: /notes/interview/3r4exvjh/
+---
 ## 概述
 
 `Unsafe` 类是 Java 中一个底层工具类，位于 `sun.misc` 包下，用于提供绕过 JVM 限制的硬件级别操作。由于 Java 无法直接访问底层操作系统，它通过本地 (native) 方法实现这些功能，本质上作为 JVM 的一个“后门”。该类广泛应用于并发编程中（如 CAS 操作），但需谨慎使用，因其操作可能破坏 Java 的内存安全和类型安全机制。

@@ -1,3 +1,8 @@
+---
+title: InnoDB和MyISAM的区别
+createTime: 2025/08/30 16:41:15
+permalink: /notes/interview/tnvnzo8i/
+---
 InnoDB 和 MyISAM 是 MySQL 中两个常用的存储引擎，它们在设计目标、功能特性和适用场景上存在显著差异。
 
 ## 适用场景

@@ -1,3 +1,8 @@
+---
+title: Java内存模型
+createTime: 2025/08/26 17:27:21
+permalink: /notes/interview/6mr50ol4/
+---
 ## MESI 协议
 
 MESI 协议（Modified、Exclusive、Shared、Invalid）是一种缓存一致性协议，用于确保多处理器系统中各 CPU 缓存中共享变量副本的一致性。
