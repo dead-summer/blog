@@ -1,0 +1,172 @@
+{
+  "main": {
+    "id": "50c94fca3471f86f",
+    "type": "split",
+    "children": [
+      {
+        "id": "1763940f5a40bafd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "388ac9c8571a2406",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "notes/八股文自救指南/MySQL/查询关键字的执行顺序.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "查询关键字的执行顺序"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "61773b19cac45696",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "69160544fc37d87f",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical",
+            "autoReveal": false
+          },
+          "icon": "lucide-folder-closed",
+          "title": "文件列表"
+        }
+      },
+      {
+        "id": "f904de1ef02beeca",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "e48b24b79fcc34be",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "23fa925f7b7c5f25",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "fd86d23563c3524d",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "6a2f1d3784c1e349",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "notes/八股文自救指南/MySQL/查询关键字的执行顺序.md",
+            "collapseAll": true,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "反向链接"
+        }
+      },
+      {
+        "id": "6b5ff0b123ca1e25",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "c34755b3744c7ce3",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "notes/八股文自救指南/MySQL/查询关键字的执行顺序.md",
+            "followCursor": false,
+            "showSearch": false,
+            "searchQuery": ""
+          },
+          "icon": "lucide-list",
+          "title": "大纲"
+        }
+      }
+    ],
+    "currentTab": 2
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "388ac9c8571a2406",
+  "lastOpenFiles": [
+    "notes/八股文自救指南/MySQL/索引失效.md",
+    "notes/八股文自救指南/MySQL/事务.md",
+    "notes/八股文自救指南/MySQL/执行计划分析.md",
+    "notes/八股文自救指南/MySQL/主从复制.md",
+    "notes/八股文自救指南/MySQL/B+树索引.md",
+    "notes/八股文自救指南/MySQL/InnoDB和MyISAM的区别.md",
+    "notes/八股文自救指南/MySQL/MVCC.md",
+    "notes/八股文自救指南/MySQL/SQL优化最佳实践.md",
+    "notes/八股文自救指南/MySQL/RR和RC的区别.md",
+    "notes/八股文自救指南/MySQL/查询关键字的执行顺序.md",
+    "notes/八股文自救指南/MySQL/查询语句执行过程.md",
+    "notes/八股文自救指南/MySQL/日志.md",
+    "notes/八股文自救指南/MySQL/聚簇索引和非聚簇索引.md"
+  ]
+}
